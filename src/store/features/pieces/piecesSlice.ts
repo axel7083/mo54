@@ -10,6 +10,12 @@ function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
 }
 
+interface Filters {
+    priceMin?: number | undefined;
+    priceMax?: number | undefined;
+    vehicle?: string | undefined;
+}
+
 const initialState: CounterState = {
   value: [
       new Piece("Bouton", getRandomInt(10), []),
@@ -39,5 +45,16 @@ export const { add } = piecesSlice.actions;
 
 export const selectPieces = (state: RootState) => state.pieces.value;
 
+export const selectPiecesFiltered = (state: RootState, filters: Filters) => {
+    return state.pieces.value.filter((piece) => {
+        if(filters.priceMin && piece.price < filters.priceMin)
+            return false;
+
+        if(filters.priceMax && piece.price > filters.priceMax)
+            return false;
+
+        return !(filters.vehicle && !piece.compatibilities.includes(filters.vehicle));
+    })
+};
 
 export default piecesSlice.reducer;
