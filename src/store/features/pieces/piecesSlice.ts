@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import {Piece} from "../../../models/Piece";
-import {defaultVehicles} from "../vehicles/vehiclesSlice";
 
 export interface CounterState {
   value: Piece[];
@@ -13,7 +12,7 @@ function getRandomInt(max: number) {
 
 const initialState: CounterState = {
   value: [
-      new Piece("Bouton", getRandomInt(10), [defaultVehicles[0].uuid]),
+      new Piece("Bouton", getRandomInt(10), []),
       new Piece("Roue", getRandomInt(10), []),
       new Piece("Vitre", getRandomInt(10), []),
       new Piece("Boite de vitesse", getRandomInt(10), []),

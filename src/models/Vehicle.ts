@@ -1,13 +1,5 @@
-import {v4} from "uuid";
-
-class Vehicle {
+export interface IVehicle {
     name: string;
-    uuid: string;
-
-    constructor(name: string, uuid: string = v4()) {
-        this.name = name;
-        this.uuid = uuid;
-    }
+    id: string;
+    imageUrl: string;
 }
-
-export default Vehicle;

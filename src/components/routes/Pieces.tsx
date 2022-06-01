@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useAppSelector} from "../../store/hooks";
 import {selectPieces} from "../../store/features/pieces/piecesSlice";
 import {Container, Table, Row, Col, Form} from "react-bootstrap";
 import { useSearchParams } from 'react-router-dom';
 import Select from 'react-select'
-import {selectVehicles} from "../../store/features/vehicles/vehiclesSlice";
 
 const Pieces = () => {
     const [searchParams] = useSearchParams();
     const pieces = useAppSelector(selectPieces);
-    const vehicles = useAppSelector(selectVehicles);
 
     const [vehiclesSelected, setVehiclesSelected] = useState<string[]>([]);
 
@@ -54,10 +52,10 @@ const Pieces = () => {
                             <h4>Sort by vehicles</h4>
                         </Col>
                     </Row>
-                    <Row className={"mb-4"}>
+                    {/*<Row className={"mb-4"}>
                         <Col>
                             <Select options={vehicles.map((vehicle, index) => {
-                                return { value: vehicle.uuid, label: vehicle.name }
+                                return {value: vehicle.uuid, label: vehicle.name}
                             })}
                                     onChange={(e) => {
                                         setVehiclesSelected(e.map((option) => {
@@ -69,7 +67,7 @@ const Pieces = () => {
                                     className="basic-multi-select"
                                     classNamePrefix="select"/>
                         </Col>
-                    </Row>
+                    </Row>*/}
                 </>
             )}
             <Row>
@@ -103,7 +101,6 @@ const Pieces = () => {
                                                 <td>{index}</td>
                                                 <td>{piece.name}</td>
                                                 <td>{piece.price} euros</td>
-                                                <td>??</td>
                                             </tr>
                                         )
                                     }
@@ -116,7 +113,6 @@ const Pieces = () => {
                                         <td>{index}</td>
                                         <td>{piece.name}</td>
                                         <td>{piece.price} euros</td>
-                                        <td>??</td>
                                     </tr>
                                 )
                             }
