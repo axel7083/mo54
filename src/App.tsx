@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/routes/Home";
 import Basket from "./components/routes/Basket";
-import Pieces from "./components/routes/Pieces";
+import Pieces from "./components/routes/pieces/Pieces";
 import Vehicles from "./components/routes/Vehicles";
 import {IconContext} from "react-icons";
 import React, {useEffect} from "react";

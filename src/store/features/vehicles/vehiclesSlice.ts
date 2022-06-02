@@ -15,7 +15,6 @@ const initialState: VehiclesState = {
 };
 
 export const fetchVehicles = createAsyncThunk('vehicles', async () => {
-    console.log("fetchVehicles");
     const response = await fetch('/vehicles.json')
     return await response.json()
 })
@@ -30,7 +29,6 @@ export const VehiclesSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchVehicles.fulfilled, (state, action) => {
-            console.log(action.payload);
             state.value = action.payload
         })
     },

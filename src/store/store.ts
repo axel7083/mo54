@@ -7,6 +7,10 @@ export const store = configureStore({
     pieces: piecesReducer,
     vehicles: vehiclesReducer,
   },
+  middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        serializableCheck: false, // We know what we are doing
+      }),
 });
 
 export type AppDispatch = typeof store.dispatch;

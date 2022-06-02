@@ -1,0 +1,125 @@
+import {Piece} from "./Piece";
+
+function getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+}
+
+const vehiclesIds: string[] = [
+    "alfa-romeo",
+    "audi",
+    "bmw",
+    "buick",
+    "cadillac",
+    "chevrolet",
+    "citroen",
+    "dacia",
+    "datsun",
+    "fiat",
+    "ford",
+    "gmc",
+    "honda",
+    "hummer",
+    "hyundai",
+    "infiniti"
+]
+
+const selectRandomVehicles = () => {
+    const copy = [...vehiclesIds];
+    const count = getRandomInt(copy.length - 1);
+    const output: string[] = [];
+
+    for(let i = 0; i < count; i++) {
+        output.push(copy.splice(getRandomInt(copy.length - 1), 1)[0]);
+    }
+
+    return output;
+}
+
+export const piecesList = [
+    new Piece("Bouton", getRandomInt(100),selectRandomVehicles(),  0),
+    new Piece("Bouton", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Roue", getRandomInt(100), selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Vitre", getRandomInt(100), selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Boite de vitesse", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Piston", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Bougie", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Valve", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Pot d'échappement", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Silencieux", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Bonnet/hood", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Car cover", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Support stick", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Hinges and springs", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Unexposed bumper", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Exposed Bumper", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Cowl screen", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Decklid", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Fender", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("fascia", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Quarter panel", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Rocker", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Roof rack", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Spoiler", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Rims", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Trim package", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Valance", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Welded assembly", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Anti-intrusion bar", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Outer door handle", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Inner door handle", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Window motor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door control module", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door seal", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door water-shield", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Hinge", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door latch", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door lock and power door locks", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Central-locking", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Glass", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Sunroof", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Sunroof Rail", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Sunroof Glass", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Window regulator", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Window seal", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Antenna assembly", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Radio and media player", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Speaker", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Alternator", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Performance Battery", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Battery Box", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Voltage regulator", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Ammeter", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Clinometer", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Dynamometer", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Manometer", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Distributor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Ignition box", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Engine bay lighting", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Airbag sensors", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Automatic transmission speed sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Camshaft position sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Coolant temperature sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Fuel level sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Fuel pressure sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Knock sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Light sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Oil level sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("ABS Sensor", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Battery", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door switch", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Ignition switch", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Power window switch", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Switch cover", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Switch panel", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Frame switch", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Air conditioning harness", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Engine compartment harness", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Interior harness", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Air bag control module", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Central locking system", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Chassis control computer", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Door contact", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Engine control unit", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Grab Handle", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+    new Piece("Relay connector", getRandomInt(100),selectRandomVehicles(),  getRandomInt(1000)),
+]
