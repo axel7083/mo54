@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useAppSelector} from "../../../store/hooks";
 import {Filters, selectPiecesFiltered} from "../../../store/features/pieces/piecesSlice";
-import {Container, Table, Row, Col, Pagination} from "react-bootstrap";
+import {Container, Row, Col, Pagination} from "react-bootstrap";
 import {FiltersComponent} from "./FiltersComponent";
 import {PiecesTable} from "./PiecesTable";
 

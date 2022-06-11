@@ -35,6 +35,10 @@ export const { add } = piecesSlice.actions;
 
 export const selectPieces = (state: RootState) => state.pieces.value;
 
+export const selectPiecesByIds = (state: RootState, piecesIds: string[]) => {
+    return state.pieces.value.filter((piece) => piecesIds.includes(piece.uuid));
+};
+
 export const selectPiecesFiltered = (state: RootState, filters: Filters) => {
     return state.pieces.value.filter((piece) => {
 

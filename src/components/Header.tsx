@@ -1,9 +1,15 @@
 import React from 'react'
-import {Navbar, Nav, Container} from 'react-bootstrap'
+import {Navbar, Nav, Container, Button, Badge} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import { BsFillCartFill } from "react-icons/bs";
+import {useNavigate} from "react-router-dom";
+import {useAppSelector} from "../store/hooks";
+import {selectCart} from "../store/features/cart/cartSlice";
 
 const Header = () => {
+
+    const navigate = useNavigate();
+    const cart = useAppSelector(selectCart);
 
     return (
         <Navbar bg="light" expand="lg">
@@ -22,10 +28,15 @@ const Header = () => {
                         </LinkContainer>
                     </Nav>
                     <Nav>
-                        <LinkContainer to="/cart">
-                            <Nav.Link><BsFillCartFill/></Nav.Link>
-                        </LinkContainer>
+                        <Button variant={"info"} onClick={(e) => {
+                            navigate("/cart");
+                        }}>
+                            <BsFillCartFill/>
+                            {
+                                (cart.length === 0)?(<></>):(<Badge style={{marginLeft: "0.5rem"}} bg="secondary">{cart.length}</Badge>)
+                            }
 
+                        </Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

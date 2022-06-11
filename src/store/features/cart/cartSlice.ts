@@ -8,7 +8,7 @@ export interface CartItem {
 
 export interface UpdatePayload {
     pieceId: string;
-    value: number
+    quantity: number
 }
 
 export interface PiecesState {
@@ -26,21 +26,21 @@ export const cartSlice = createSlice({
         add: (state, action: PayloadAction<CartItem>) => {
             state.value = [...state.value, action.payload];
         },
-        increment: (state, action: PayloadAction<number>) => {
-            const copy = [...state.value];
-            copy[action.payload].quantity++;
-            state.value = copy;
-        },
-        decrement: (state, action: PayloadAction<number>) => {
-            const copy = [...state.value];
-            copy[action.payload].quantity--;
-            state.value = copy;
-        },
         update: (state, action: PayloadAction<UpdatePayload>) => {
             const copy = [...state.value];
             for (let i = 0; i < copy.length; i++) {
                 if(copy[i].pieceId === action.payload.pieceId) {
-                    copy[i].quantity = action.payload.value;
+                    copy[i].quantity = action.payload.quantity;
+                    break;
+                }
+            }
+            state.value = copy;
+        },
+        remove: (state, action: PayloadAction<string>) => {
+            const copy = [...state.value];
+            for (let i = 0; i < copy.length; i++) {
+                if(copy[i].pieceId === action.payload) {
+                    copy.splice(i, 1);
                     break;
                 }
             }
@@ -49,8 +49,8 @@ export const cartSlice = createSlice({
     },
 });
 
-export const selectPieces = (state: RootState) => state.cart.value;
+export const selectCart = (state: RootState) => state.cart.value;
 
-export const { add, increment, decrement, update } = cartSlice.actions;
+export const { add, update, remove } = cartSlice.actions;
 
 export default cartSlice.reducer;

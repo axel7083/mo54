@@ -1,6 +1,12 @@
-import {Button, Table} from "react-bootstrap";
+import {Button, Table, Form} from "react-bootstrap";
 import React from "react";
 import {Piece} from "../../../models/Piece";
+import './option-table.css';
+import {useAppDispatch, useAppSelector} from "../../../store/hooks";
+import {add, CartItem, remove, selectCart, update} from "../../../store/features/cart/cartSlice";
+import QuantityEditor from "./QuantityEditor";
+
+
 
 export const PiecesTable = ({pieces}: {pieces: Piece[]}) => {
 
@@ -11,7 +17,7 @@ export const PiecesTable = ({pieces}: {pieces: Piece[]}) => {
                 <th>Piece Name</th>
                 <th>Price</th>
                 <th>Available</th>
-                <th></th>
+                <th className={"option-table"}></th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +27,9 @@ export const PiecesTable = ({pieces}: {pieces: Piece[]}) => {
                         <td>{piece.name}</td>
                         <td>{piece.price} euros</td>
                         <td>{piece.available}</td>
-                        <td width={"sm"}><Button>Add to cart</Button></td>
+                        <td align={"center"} className={"option-table"}>
+                            <QuantityEditor pieceId={piece.uuid}/>
+                        </td>
                     </tr>
                 )
             })}
