@@ -1,16 +1,18 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import piecesReducer from './features/pieces/piecesSlice';
 import vehiclesReducer from './features/vehicles/vehiclesSlice';
+import cartReducer from './features/cart/cartSlice';
 
 export const store = configureStore({
-  reducer: {
-    pieces: piecesReducer,
-    vehicles: vehiclesReducer,
-  },
-  middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({
-        serializableCheck: false, // We know what we are doing
-      }),
+    reducer: {
+        pieces: piecesReducer,
+        vehicles: vehiclesReducer,
+        cart: cartReducer
+    },
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false, // We know what we are doing
+        }),
 });
 
 export type AppDispatch = typeof store.dispatch;

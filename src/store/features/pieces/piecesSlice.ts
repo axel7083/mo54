@@ -3,7 +3,7 @@ import { RootState } from '../../store';
 import {Piece} from "../../../models/Piece";
 import {piecesList} from "../../../models/PiecesList";
 
-export interface CounterState {
+export interface PiecesState {
   value: Piece[];
 }
 
@@ -17,7 +17,7 @@ export interface Filters {
     available?: boolean | undefined
 }
 
-const initialState: CounterState = {
+const initialState: PiecesState = {
   value: piecesList,
 };
 
