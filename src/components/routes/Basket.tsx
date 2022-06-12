@@ -42,6 +42,8 @@ const BasketPrice = ({price, delivery, discount}: {price: number, delivery: numb
         return price + delivery;
     }
 
+    const navigate = useNavigate();
+
     return (
         <Card className={"p-4"}>
             <Container>
@@ -89,7 +91,9 @@ const BasketPrice = ({price, delivery, discount}: {price: number, delivery: numb
                     </Col>
                 </Row>
                 <Row className={"mt-4"}>
-                    <Button variant={"success"}>Order</Button>
+                    <Button variant={"success"} onClick={(e) => {
+                        navigate("/payment")
+                    }}>Order</Button>
                 </Row>
             </Container>
         </Card>

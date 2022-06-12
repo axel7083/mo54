@@ -10,12 +10,13 @@ const Vehicle = ({vehicle}: {vehicle: IVehicle}) => {
     const navigate = useNavigate();
     return (
         <Card style={{ width: '8rem', height: '8rem'}} className={"align-items-center"} onClick={(e) => {
+            e.preventDefault();
             navigate({
-                pathname: '/vehicle',
-                search: `?id=${vehicle.id}`,
+                pathname: '/pieces',
+                search: `?vehicle=${vehicle.id}`,
             });
         }}>
-            <a href="">
+            <a href="#">
                 <div style={{ width: '100%', height: '4rem', textAlign: "center", marginTop: "1rem"}}>
                     <Card.Img style={{ width: '4rem'}} variant="top" src={vehicle.imageUrl} />
                 </div>

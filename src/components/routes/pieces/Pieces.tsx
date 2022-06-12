@@ -1,14 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAppSelector} from "../../../store/hooks";
 import {Filters, selectPiecesFiltered} from "../../../store/features/pieces/piecesSlice";
 import {Container, Row, Col, Pagination} from "react-bootstrap";
 import {FiltersComponent} from "./FiltersComponent";
 import {PiecesTable} from "./PiecesTable";
+import {useSearchParams } from "react-router-dom";
 
 
 const Pieces = () => {
     const [filters, setFilters] = useState<Filters>({page: 0, elementPerPage: 10});
     const pieces = useAppSelector((state => selectPiecesFiltered(state, filters)));
+
+
 
     return (
         <Container className={"mt-4"}>

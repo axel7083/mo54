@@ -3,10 +3,33 @@ import {useAppSelector} from "../../../store/hooks";
 import {selectVehicles} from "../../../store/features/vehicles/vehiclesSlice";
 import {Col, Form, Row} from "react-bootstrap";
 import Select from "react-select";
-import React from "react";
+import React, {useEffect} from "react";
+import {useSearchParams} from "react-router-dom";
 
 export const FiltersComponent = ({filters, setFilters}: {filters: Filters, setFilters: (d: (prevState: Filters) => Filters) => void}): JSX.Element => {
     const vehicles = useAppSelector(selectVehicles);
+
+    const [searchParams, setSearchParams] = useSearchParams ();
+
+    useEffect(() => {
+        if(searchParams.has("vehicle")) {
+            setFilters(prevState => {
+                return {...prevState, vehicle: searchParams.get("vehicle")!, page: 0};
+            })
+        }
+    }, [searchParams])
+
+    const findSelectValue = () => {
+        if(searchParams.has("vehicle")) {
+            const vehicleId = searchParams.get("vehicle");
+            const vehicle = vehicles.find((vehicle) => vehicle.id === vehicleId);
+            if(vehicle === undefined)
+                return undefined; //Something went wrong
+            return {value: vehicle.id, label: vehicle.name};
+        }
+
+        return undefined;
+    }
 
     return (
         <Form>
@@ -52,16 +75,20 @@ export const FiltersComponent = ({filters, setFilters}: {filters: Filters, setFi
 
                 <Form.Group as={Col} controlId="formGridZip">
                     <Form.Label>Select vehicle</Form.Label>
-                    <Select options={vehicles.map((vehicle, index) => {
+                    <Select options={vehicles.map((vehicle) => {
                         return {value: vehicle.id, label: vehicle.name}
                     })}
                             onChange={(e) => {
-                                setFilters((prevState) => {
-                                    return {...prevState, vehicle: e?.value, page: 0};
-                                });
+                                if(e !== null)
+                                    setSearchParams({
+                                        'vehicle': e?.value
+                                    });
+                                else
+                                    setSearchParams({});
                             }}
                             isClearable={true}
                             isMulti={false}
+                            value={findSelectValue()}
                             name="vehicles"
                             classNamePrefix="select"/>
                 </Form.Group>

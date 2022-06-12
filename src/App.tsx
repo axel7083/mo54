@@ -8,6 +8,8 @@ import {IconContext} from "react-icons";
 import React, {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "./store/hooks";
 import {fetchVehicles} from "./store/features/vehicles/vehiclesSlice";
+import FakeSecurePage from "./components/routes/FakeSecurePage";
+import FakeConfirmPage from "./components/routes/FakeConfirmPage";
 
 const App = () => {
 
@@ -28,6 +30,8 @@ const App = () => {
                     <Route path="/cart" element={<Basket/>} />
                     <Route path="/pieces" element={<Pieces/>} />
                     <Route path="/vehicles" element={<Vehicles/>} />
+                    <Route path="/payment" element={<FakeSecurePage/>} />
+                    <Route path="/confirm" element={<FakeConfirmPage/>} />
                 </Routes>
             </Router>
         </IconContext.Provider>
