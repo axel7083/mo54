@@ -4,6 +4,8 @@ import 'react-credit-cards/es/styles-compiled.css';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import WaitComponent, {centering} from "./WaitComponent";
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../../store/hooks";
+import {reset} from "../../store/features/cart/cartSlice";
 
 interface CardInfo {
     cvc: string,
@@ -26,6 +28,8 @@ const FakeSecurePage = () => {
     const [loading, setLoading] = useState<boolean>(true);
 
     const navigate = useNavigate();
+
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
 
@@ -97,6 +101,7 @@ const FakeSecurePage = () => {
                 </Col>
                 <Col>
                     <Button variant={"success"} onClick={(e) => {
+                        dispatch(reset()); // Reset the basket
                         navigate("/confirm");
                     }}>Confirm payment</Button>
                 </Col>

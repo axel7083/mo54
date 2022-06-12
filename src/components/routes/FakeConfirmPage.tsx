@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import WaitComponent from "./WaitComponent";
-import {Container} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 const FakeConfirmPage = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -19,8 +19,12 @@ const FakeConfirmPage = () => {
         )
 
     return (
-        <Container>
-            The order has been validated!
+        <Container className={"mt-4"}>
+            <Row>
+                <Col>
+                    You order has been confirmed!
+                </Col>
+            </Row>
         </Container>
     );
 }

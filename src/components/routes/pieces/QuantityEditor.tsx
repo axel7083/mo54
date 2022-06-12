@@ -55,7 +55,7 @@ const QuantityEditor = ({pieceId}: {pieceId: string}) => {
         )
 
     return (
-        <Button onClick={(e) => addToCart(pieceId)}>Add to cart</Button>
+        <Button variant={"info"} onClick={(e) => addToCart(pieceId)}>Add to cart</Button>
     )
 }
 

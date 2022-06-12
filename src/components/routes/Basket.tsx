@@ -1,11 +1,64 @@
 import {Button, Card, Col, Container, Form, InputGroup, Row, Spinner} from "react-bootstrap";
-import {useAppSelector} from "../../store/hooks";
+import {useAppDispatch, useAppSelector} from "../../store/hooks";
 import {selectCart} from "../../store/features/cart/cartSlice";
-import {selectPiecesByIds} from "../../store/features/pieces/piecesSlice";
+import {selectPieces, selectPiecesByIds} from "../../store/features/pieces/piecesSlice";
 import {useNavigate} from "react-router-dom";
 import QuantityEditor, {getCartCount} from "./pieces/QuantityEditor";
 import {Piece} from "../../models/Piece";
 import {FormEvent, useState} from "react";
+
+function getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+}
+
+const BasketRecommendation = () => {
+
+    const cart = useAppSelector(selectCart).map((item) => item.pieceId);
+    const pieces = useAppSelector(selectPieces).filter((piece) => !cart.includes(piece.uuid));
+
+    const getRandomPieces = (count: number) => {
+        const selected = []
+        for (let i = 0; i < count; i++) {
+            selected.push(pieces[getRandomInt(pieces.length - 1)]);
+        }
+        return selected;
+    }
+
+    // If not enough item are present
+    if(pieces.length < 5)
+        return <></>;
+
+    return (
+        <Container>
+            <Row className={"mb-4 mt-4"}>
+                <Col>
+                    <h3>
+                        Those items are usually bought with some item(s) you selected.
+                    </h3>
+                </Col>
+            </Row>
+            <Row>
+                {getRandomPieces(5).map((piece, index) => {
+                    return (
+                        <Col key={index}>
+                            <Card style={{height: "12rem"}}>
+                                <Card.Body>
+                                    <Card.Title>
+                                        {piece.name}
+                                    </Card.Title>
+                                    <Card.Text>{piece.price} €</Card.Text>
+                                </Card.Body>
+                                <Card.Footer>
+                                    <QuantityEditor pieceId={piece.uuid}/>
+                                </Card.Footer>
+                            </Card>
+                        </Col>
+                    )
+                })}
+            </Row>
+        </Container>
+    )
+}
 
 const BasketList = ({pieces}: {pieces: Piece[]}) => {
     return (
@@ -208,6 +261,9 @@ const Basket = () => {
                         <BasketCode setApplyDiscount={setApplyDiscount}/>
                     </Row>
                 </Col>
+            </Row>
+            <Row className={"mt-4 mb-4"}>
+                <BasketRecommendation/>
             </Row>
         </Container>
     )

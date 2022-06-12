@@ -46,11 +46,14 @@ export const cartSlice = createSlice({
             }
             state.value = copy;
         },
+        reset: (state) => {
+            state.value = [];
+        }
     },
 });
 
 export const selectCart = (state: RootState) => state.cart.value;
 
-export const { add, update, remove } = cartSlice.actions;
+export const { add, update, remove, reset } = cartSlice.actions;
 
 export default cartSlice.reducer;
