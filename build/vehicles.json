@@ -1,0 +1,82 @@
+[
+  {
+    "id": "alfa-romeo",
+    "name": "Alfa-romeo",
+    "imageUrl": "/images/alfa-romeo.png"
+  },
+  {
+    "id": "audi",
+    "name": "Audi",
+    "imageUrl": "/images/audi.png"
+  },
+  {
+    "id": "bmw",
+    "name": "Bmw",
+    "imageUrl": "/images/bmw.png"
+  },
+  {
+    "id": "buick",
+    "name": "Buick",
+    "imageUrl": "/images/buick.png"
+  },
+  {
+    "id": "cadillac",
+    "name": "Cadillac",
+    "imageUrl": "/images/cadillac.png"
+  },
+  {
+    "id": "chevrolet",
+    "name": "Chevrolet",
+    "imageUrl": "/images/chevrolet.png"
+  },
+  {
+    "id": "citroen",
+    "name": "Citroen",
+    "imageUrl": "/images/citroen.png"
+  },
+  {
+    "id": "dacia",
+    "name": "Dacia",
+    "imageUrl": "/images/dacia.png"
+  },
+  {
+    "id": "datsun",
+    "name": "Datsun",
+    "imageUrl": "/images/datsun.png"
+  },
+  {
+    "id": "fiat",
+    "name": "Fiat",
+    "imageUrl": "/images/fiat.png"
+  },
+  {
+    "id": "ford",
+    "name": "Ford",
+    "imageUrl": "/images/ford.png"
+  },
+  {
+    "id": "gmc",
+    "name": "Gmc",
+    "imageUrl": "/images/gmc.png"
+  },
+  {
+    "id": "honda",
+    "name": "Honda",
+    "imageUrl": "/images/honda.png"
+  },
+  {
+    "id": "hummer",
+    "name": "Hummer",
+    "imageUrl": "/images/hummer.png"
+  },
+  {
+    "id": "hyundai",
+    "name": "Hyundai",
+    "imageUrl": "/images/hyundai.png"
+  },
+  {
+    "id": "infiniti",
+    "name": "Infiniti",
+    "imageUrl": "/images/infiniti.png"
+  }
+]

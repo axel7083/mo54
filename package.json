@@ -1,5 +1,6 @@
 {
-  "name": "bus-ts",
+  "name": "mo54",
+  "homepage": "https://axel7083.github.io/mo54",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +27,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -58,6 +61,7 @@
     "@types/react-dom": "^18.0.5",
     "@types/react-router-bootstrap": "^0.24.5",
     "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^4.0.0",
     "typescript": "^4.7.2"
   }
 }
