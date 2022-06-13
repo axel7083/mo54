@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
-import WaitComponent from "./WaitComponent";
-import {Col, Container, Row} from "react-bootstrap";
+import WaitComponent, {centering} from "./WaitComponent";
+import {Button, Col, Container, Row} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const FakeConfirmPage = () => {
     const [loading, setLoading] = useState<boolean>(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(loading) {
@@ -20,9 +22,16 @@ const FakeConfirmPage = () => {
 
     return (
         <Container className={"mt-4"}>
-            <Row>
-                <Col>
+            <Row >
+                <Col style={centering}>
                     You order has been confirmed!
+                </Col>
+            </Row>
+            <Row >
+                <Col style={centering}>
+                    <Button onClick={(e) => {
+                        navigate("/vehicles");
+                    }}>Return to vehicles</Button>
                 </Col>
             </Row>
         </Container>

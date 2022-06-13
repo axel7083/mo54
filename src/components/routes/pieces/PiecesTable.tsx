@@ -1,11 +1,8 @@
-import {Button, Table, Form} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import React from "react";
 import {Piece} from "../../../models/Piece";
 import './option-table.css';
-import {useAppDispatch, useAppSelector} from "../../../store/hooks";
-import {add, CartItem, remove, selectCart, update} from "../../../store/features/cart/cartSlice";
 import QuantityEditor from "./QuantityEditor";
-
 
 
 export const PiecesTable = ({pieces}: {pieces: Piece[]}) => {
