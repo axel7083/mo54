@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/routes/Home";
 import Basket from "./components/routes/Basket";
@@ -26,7 +26,7 @@ const App = () => {
             <Router>
                 <Header/>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
+                    <Route path="/" element={<Vehicles/>} />
                     <Route path="/cart" element={<Basket/>} />
                     <Route path="/pieces" element={<Pieces/>} />
                     <Route path="/vehicles" element={<Vehicles/>} />

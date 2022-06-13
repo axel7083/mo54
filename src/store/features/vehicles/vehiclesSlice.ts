@@ -15,7 +15,7 @@ const initialState: VehiclesState = {
 };
 
 export const fetchVehicles = createAsyncThunk('vehicles', async () => {
-    const response = await fetch('/vehicles.json')
+    const response = await fetch(`${process.env.PUBLIC_URL}/vehicles.json`)
     return await response.json()
 })
 

@@ -18,7 +18,7 @@ const Vehicle = ({vehicle}: {vehicle: IVehicle}) => {
         }}>
             <a href="#">
                 <div style={{ width: '100%', height: '4rem', textAlign: "center", marginTop: "1rem"}}>
-                    <Card.Img style={{ width: '4rem'}} variant="top" src={vehicle.imageUrl} />
+                    <Card.Img style={{ width: '4rem'}} variant="top" src={`${process.env.PUBLIC_URL}${vehicle.imageUrl}`} />
                 </div>
                 <Card.Body>
                     <Card.Text>{vehicle.name}</Card.Text>
